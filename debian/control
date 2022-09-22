@@ -1,0 +1,26 @@
+Source: node-vm-browserify
+Section: javascript
+Priority: optional
+Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Uploaders: Pirate Praveen <praveen@debian.org>
+ , Bastien Roucariès <rouca@debian.org>
+Build-Depends: debhelper-compat (= 13)
+ , dh-sequence-nodejs
+ , jest <!nocheck>
+Standards-Version: 4.6.0
+Homepage: https://github.com/substack/vm-browserify
+Vcs-Git: https://salsa.debian.org/js-team/node-vm-browserify.git
+Vcs-Browser: https://salsa.debian.org/js-team/node-vm-browserify
+Rules-Requires-Root: no
+Testsuite: autopkgtest-pkg-nodejs
+
+Package: node-vm-browserify
+Architecture: all
+Depends: ${misc:Depends}
+Multi-Arch: foreign
+Description: vm module for the browser
+ emulate node's vm module for the browser. This module is depended upon by
+ browserify, so you should just be able to `require('vm')` and it will just
+ work.
+ .
+ Node.js is an event-based server-side JavaScript engine.

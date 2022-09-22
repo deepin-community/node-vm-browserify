@@ -1,0 +1,6 @@
+version=4
+opts=\
+dversionmangle=auto,\
+repacksuffix=+ds,\
+filenamemangle=s/.*?(\d[\d\.-]*@ARCHIVE_EXT@)/node-vm-browserify-$1/ \
+ https://github.com/substack/vm-browserify/tags .*/archive/.*/v?([\d\.]+).tar.gz

@@ -1,0 +1,61 @@
+Description: browser test is available via jest
+Author: Yadd <yadd@debian.org>
+Forwarded: not-needed
+Last-Update: 2021-11-03
+
+--- a/test/vm.js
++++ b/test/vm.js
+@@ -1,35 +1,35 @@
+-var test = require('tape');
++/**
++ * @jest-environment jsdom
++ */
+ var vm = require('../');
+ 
+-test('vmRunInNewContext', function (t) {
+-    t.plan(6);
+-    
+-    t.equal(vm.runInNewContext('a + 5', { a : 100 }), 105);
+-    
++test('vmRunInNewContext', function () {
++    expect.assertions(6);
++
++    expect(vm.runInNewContext('a + 5', { a : 100 })).toBe(105);
++
+     (function () {
+         var vars = { x : 10 };
+-        t.equal(vm.runInNewContext('x++', vars), 10);
+-        t.equal(vars.x, 11);
++        expect(vm.runInNewContext('x++', vars)).toBe(10);
++        expect(vars.x).toBe(11);
+     })();
+-    
++
+     (function () {
+         var vars = { x : 10 };
+-        t.equal(vm.runInNewContext('var y = 3; y + x++', vars), 13);
+-        t.equal(vars.x, 11);
+-        t.equal(vars.y, 3);
++        expect(vm.runInNewContext('var y = 3; y + x++', vars)).toBe(13);
++        expect(vars.x).toBe(11);
++        expect(vars.y).toBe(3);
+     })();
+-    
+-    t.end();
+ });
+ 
+-test('vmRunInContext', function (t) {
+-    t.plan(2);
++test('vmRunInContext', function () {
++    expect.assertions(2);
+ 
+     var context = vm.createContext({ foo: 1 });
+ 
+     vm.runInContext('var x = 1', context);
+-    t.deepEqual(context, { foo: 1, x: 1 });
++    expect(context).toEqual({ foo: 1, x: 1 });
+ 
+     vm.runInContext('var y = 1', context);
+-    t.deepEqual(context, { foo: 1, x: 1, y: 1 });
++    expect(context).toEqual({ foo: 1, x: 1, y: 1 });
+ });

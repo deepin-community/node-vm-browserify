@@ -1,0 +1,49 @@
+node-vm-browserify (1.1.2+ds-4) unstable; urgency=medium
+
+  * Team upload
+  * Update standards version to 4.6.0, no changes needed.
+  * Add debian/gbp.conf
+  * Modernize debian/watch
+  * Fix filenamemangle
+  * Fix GitHub tags regex
+  * Use dh-sequence-nodejs instead of pkg-js-tools
+  * Enable upstream test using jest instead of tap (to have browser context)
+
+ -- Yadd <yadd@debian.org>  Wed, 03 Nov 2021 06:36:00 +0100
+
+node-vm-browserify (1.1.2+ds-3) unstable; urgency=medium
+
+  * Remove constraints unnecessary since buster:
+    + Build-Depends: Drop versioned constraint on nodejs.
+    + node-vm-browserify: Drop versioned constraint on nodejs in Depends.
+  * Bump debhelper from old 12 to 13.
+  * Update standards version to 4.5.1, no changes needed.
+
+ -- Debian Janitor <janitor@jelmer.uk>  Wed, 15 Sep 2021 16:16:33 +0100
+
+node-vm-browserify (1.1.2+ds-2) unstable; urgency=medium
+
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
+    Repository-Browse.
+  * Apply multi-arch hints.
+    + node-vm-browserify: Add Multi-Arch: foreign.
+
+ -- Debian Janitor <janitor@jelmer.uk>  Sat, 28 Aug 2021 21:13:38 +0100
+
+node-vm-browserify (1.1.2+ds-1) unstable; urgency=medium
+
+  * Repack removing browserified file not recompiled from source
+  * Update policy (no changes)
+  * Use debhelper 12
+  * Use pkg-js-tools
+  * New upstream version adding vm.isContext(sandbox)
+  * Move to section javascript
+  * Move to salsa
+
+ -- Bastien Roucariès <rouca@debian.org>  Tue, 03 Mar 2020 22:38:56 +0100
+
+node-vm-browserify (0.0.4-1) unstable; urgency=low
+
+  * Initial release (Closes: #861655)
+
+ -- Pirate Praveen <praveen@debian.org>  Tue, 02 May 2017 16:10:19 +0530
